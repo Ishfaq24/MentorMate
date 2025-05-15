@@ -1,21 +1,17 @@
 const mongoose = require('mongoose');
-const { object } = require('zod');
 const schema = mongoose.Schema;
 
 const userSchema = new schema({
-    id:{type: object},
     fullName: { type: String, required: true },
     email: { type: String, required: true },
     password: { type: String, required: true }
 });
 
 const adminSchema = new schema({
-    id:{type: object},
     fullName: { type: String, required: true },
     email: { type: String, required: true },
     password: { type: String, required: true }
 });
-
 
 const courseSchema = new schema({
     title: { type: String, required: true },
@@ -31,7 +27,6 @@ const purchaseSchema = new schema({
     courseId: { type: mongoose.Schema.Types.ObjectId, ref: 'Course' },
     createdAt: { type: Date, default: Date.now }
 });
-
 
 const User = mongoose.model('User', userSchema);
 const Course = mongoose.model('Course', courseSchema);
